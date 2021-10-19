@@ -70,7 +70,7 @@ new <- data.frame(ARM = 88,GRIP = 94)
 ```
 
 ```{r}
-predict(model.1,new)
+predict(model.1,new, interval = "prediction")
 ```
 
 #### scatterplot with model fit
@@ -97,7 +97,9 @@ plot(SIMS~GRIP,data=data)
 GRIP has a smaller correlation with SIMS then with SIMS vs ARM. 
 
 ### Numerical results 
-
+```{r}
+cor(SIMS~GRIP, data=data)
+```
 
 ### Inferential  (Build model.2)
 
@@ -110,7 +112,7 @@ summary.lm(model.2)
 If we look at the adjusted R squared value of this GRIP data, it is smaller than the ARM data adjusted R squared value. In addition, the residual standard error is larger for this grip data then the ARM data. Both of these values indicate that model 1 is a better model.
 #### predict model.2 at target point
 ```{r}
-predict(model.2,new)
+predict(model.2,new, interval = "prediction")
 ```
 
 
@@ -122,7 +124,10 @@ predict(model.2,new)
 
 ### Numerical results (cor)
 
-`
+```{r}
+cor(SIMS~ARM+GRIP, data=data)
+```
+
   
 ### Inferential  (Build 2-dimentional model.3)
 
